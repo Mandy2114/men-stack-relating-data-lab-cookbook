@@ -17,5 +17,7 @@
         <%= ingredient.name %> 
       <% })%>
     </div>
+    <form action="/recipes/<%= recipe._id %>?_method=DELETE" method="post"></form>
+    <button type="submit">Delete Recipe</button>
   </body>
 </html>
