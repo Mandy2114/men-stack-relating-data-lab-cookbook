@@ -60,12 +60,26 @@ router.get("/:recipeId", async (req, res) => {
 router.delete("/:recipeId", async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.recipeId);
-
     if (recipe.owner.toString() == req.session.user._id) {
       await Recipe.findByIdAndDelete(req.params.recipeId);
-      res.redirect()
+      res.redirect("/recipes");
     } else {
-      
+      res.redirect("/");
+    }
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
+router.get("/:recipeId/edit", async (req, res) => {
+  try {
+    const recipe = await Recipe.findById(req.params.recipeId);
+    // res.render("recipes/edit.ejs", { recipe });
+    if (recipe.owner.toString() == req.session.user._id) {
+      res.render("recipes/edit.ejs", { recipe });
+    } else {
+      res.redirect("/")
     }
   } catch (error) {
     console.log(error);
