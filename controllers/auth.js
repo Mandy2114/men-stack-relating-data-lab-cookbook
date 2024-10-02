@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 
 const User = require('../models/user.js');
+//const Recipe = require('../models/recipe.js');
+const ingredients = require('../models/ ingredient.js')
 
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
@@ -77,4 +79,12 @@ router.post('/sign-in', async (req, res) => {
   }
 });
 
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+}
+
+module.exports = ensureAuthenticated;
 module.exports = router;
