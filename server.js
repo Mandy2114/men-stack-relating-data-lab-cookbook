@@ -34,6 +34,7 @@ app.get("/", (req, res) => {
     user: req.session.user,
   });
 });
+
 app.use(passUserToView);
 app.use("/auth", authController);
 app.use(isSignedIn);

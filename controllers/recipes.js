@@ -7,5 +7,7 @@ const User = require('../models/user.js');
 const Recipe = require('../models/recipe.js');
 
 // router logic will go here - will be built later on in the lab
-
+router.get("/", (req, res, next) => {
+  res.render('recipes/index.ejs')
+})
 module.exports = router;
