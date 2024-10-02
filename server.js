@@ -41,7 +41,7 @@ app.use('/recipes', recipesController);
 app.use('/ingredients', ingredientsController);
 
 mongoose.connection.on("connected", () => {
-  console.clear();
+  //console.clear();
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
   app.listen(port, () => {
     console.log(`The express app is ready on port ${port}!`);

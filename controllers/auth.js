@@ -77,12 +77,4 @@ router.post('/sign-in', async (req, res) => {
   }
 });
 
-// function ensureAuthenticated(req, res, next) {
-//   if (req.isAuthenticated()) {
-//     return next();
-//   }
-//   res.redirect('/login');
-// }
-
-//module.exports = ensureAuthenticated;
 module.exports = router;
