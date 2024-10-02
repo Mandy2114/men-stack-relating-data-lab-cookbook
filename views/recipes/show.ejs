@@ -6,6 +6,16 @@
     <title><%= recipe.name %></title>
   </head>
   <body>
-    <h1>You are viewing <%= recipe.name %></h1>
+    <div>
+      <%- include('../partials/_navbar.ejs') %>
+      <p>Recipe: <%= recipe.name %></p>
+      <br>
+      <p>Instructions: <%= recipe.instructions %></p>
+      <br>
+      <p>Ingredients:</p>
+      <% recipe.ingredients.forEach((ingredient) => { %> 
+        <%= ingredient.name %> 
+      <% })%>
+    </div>
   </body>
 </html>
