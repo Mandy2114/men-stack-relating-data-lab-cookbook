@@ -16,7 +16,11 @@
       <textarea name="instructions" id="instructions"></textarea>
       <br>
       <% ingredients.forEach((ingredients) => { %>
-        
+        <input type="checkbox" 
+        name="ingredients" 
+        id="<%= ingredient._id %>" 
+        value="<%= ingredient._id %>">
+        <label for="<%= ingredient._id %>"><%= ingredient.name %></label>
       <% }) %> 
     </form>
   </body>
