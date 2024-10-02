@@ -17,4 +17,22 @@ router.get("/new", async (req, res) => {
   res.render('recipes/new.ejs', {ingredients})
 });
 
+router.post("/", async (req, res) => {
+  //const user = await User.findById(req.session.user._id)
+  try {
+    const recipeData = {
+      ...req.body,
+      owner: req.session.User._id,
+    };
+
+    const recipe = new Recipe.create(recipeData);
+    res.send("Thanks for making a recipe")
+
+    res.redirect("/recipes");
+  } catch {
+    console.log(error);
+    res.redirect("/")
+  }  
+});
+
 module.exports = router;

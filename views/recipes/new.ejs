@@ -16,12 +16,15 @@
       <textarea name="instructions" id="instructions"></textarea>
       <br>
       <% ingredients.forEach((ingredients) => { %>
-        <input type="checkbox" 
+        <input 
+        type="checkbox" 
         name="ingredients" 
         id="<%= ingredient._id %>" 
-        value="<%= ingredient._id %>">
+        value="<%= ingredient._id %>"
+        />
         <label for="<%= ingredient._id %>"><%= ingredient.name %></label>
       <% }) %> 
+      <button type="submit">Save Recipe</button>
     </form>
   </body>
 </html>

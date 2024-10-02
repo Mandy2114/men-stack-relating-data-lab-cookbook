@@ -30,9 +30,7 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.render("index.ejs", {
-    user: req.session.user,
-  });
+  res.render("index.ejs");
 });
 
 app.use(passUserToView);
@@ -42,6 +40,7 @@ app.use('/recipes', recipesController);
 app.use('/ingredients', ingredientsController);
 
 mongoose.connection.on("connected", () => {
+
   console.log(`Connected to MongoDB ${mongoose.connection.name}.`);
   app.listen(port, () => {
     console.log(`The express app is ready on port ${port}!`);
