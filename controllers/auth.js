@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 const User = require('../models/user.js');
 //const Recipe = require('../models/recipe.js');
-const ingredients = require('../models/ ingredient.js')
+//const ingredients = require('../models/ ingredient.js')
 
 router.get('/sign-up', (req, res) => {
   res.render('auth/sign-up.ejs');
